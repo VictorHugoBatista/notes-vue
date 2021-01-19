@@ -21,7 +21,9 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <div class="container">
+        <router-view />
+      </div>
     </q-page-container>
 
   </q-layout>
