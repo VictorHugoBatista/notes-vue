@@ -3,7 +3,7 @@
     <h2 class="text-h3">
       Create Note
     </h2>
-    <q-form class="row q-col-gutter-md">
+    <q-form class="row q-col-gutter-md" @submit="onSubmit">
       <q-input rounded outlined clearable
       label="Title"
       v-model="form.title"
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import NoteService from '../services/Note'
+
 export default {
   // name: 'PageName',
   data () {
@@ -33,6 +35,11 @@ export default {
         title: '',
         body: ''
       }
+    }
+  },
+  methods: {
+    onSubmit () {
+      NoteService.create(this.form)
     }
   }
 }
