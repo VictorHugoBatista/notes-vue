@@ -43,10 +43,19 @@ export default {
     async onSubmit () {
       const result = await NoteService.create(this.form)
       if (result) {
-        console.log('sucesso')
+        this.$q.notify({
+          message: 'Note created!',
+          color: 'positive',
+          icon: 'check_circle_outline'
+        })
         this.onReset()
       } else {
-        console.log('error')
+        this.$q.notify({
+          message: 'Error on note creation',
+          color: 'negative',
+          icon: 'highlight_off'
+        })
+        console.log('error', result)
       }
     },
     async onReset () {
