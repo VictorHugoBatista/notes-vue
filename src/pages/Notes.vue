@@ -1,5 +1,6 @@
 <template>
   <q-page padding>
+    List
     <!-- content -->
   </q-page>
 </template>
