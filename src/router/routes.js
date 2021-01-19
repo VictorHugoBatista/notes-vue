@@ -8,6 +8,16 @@ const routes = [
     ]
   },
 
+  {
+    path: '/notes',
+    component: () => import('layouts/NotesLayout.vue'),
+    children: [
+      { path: '', name: 'notes-list', component: () => import('pages/Notes.vue') },
+      { path: 'create', name: 'notes-create', component: () => import('pages/Note.vue') },
+      { path: 'edit/:noteId', name: 'notes-edit', component: () => import('pages/Note.vue') }
+    ]
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
