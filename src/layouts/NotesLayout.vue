@@ -6,9 +6,6 @@
         <q-btn dense flat round icon="menu" @click="left = !left" />
 
         <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
-          </q-avatar>
           Notes
         </q-toolbar-title>
       </q-toolbar>
@@ -31,7 +28,7 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
+import EssentialLink from 'components/EssentialLinkInternal.vue'
 
 export default {
   components: { EssentialLink },
@@ -43,13 +40,13 @@ export default {
           title: 'List Notes',
           caption: '',
           icon: 'article',
-          link: 'https://quasar.dev'
+          link: 'notes-list'
         },
         {
           title: 'Create Note',
           caption: '',
           icon: 'note_add',
-          link: 'https://quasar.dev'
+          link: 'notes-create'
         }
       ]
     }
