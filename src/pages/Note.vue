@@ -3,7 +3,7 @@
     <h2 class="text-h3">
       Create Note
     </h2>
-    <q-form class="row q-col-gutter-md" @submit="onSubmit">
+    <q-form ref="noteForm" class="row q-col-gutter-md" @submit="onSubmit" @reset="onReset">
       <q-input rounded outlined clearable
       label="Title"
       v-model="form.title"
@@ -40,8 +40,24 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
-      NoteService.create(this.form)
+    async onSubmit () {
+      const result = await NoteService.create(this.form)
+      if (result) {
+        console.log('sucesso')
+        this.onReset()
+      } else {
+        console.log('error')
+      }
+    },
+    async onReset () {
+      await this.resetForm()
+      this.$refs.noteForm.resetValidation()
+    },
+    resetForm () {
+      this.form = {
+        title: '',
+        body: ''
+      }
     }
   }
 }
