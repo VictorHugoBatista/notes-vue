@@ -16,6 +16,11 @@
 
     <q-drawer v-model="left" side="left" overlay elevated>
       <!-- drawer content -->
+      <EssentialLink
+        v-for="link in sidebarLinks"
+        :key="link.title"
+        v-bind="link"
+      />
     </q-drawer>
 
     <q-page-container>
@@ -26,10 +31,27 @@
 </template>
 
 <script>
+import EssentialLink from 'components/EssentialLink.vue'
+
 export default {
+  components: { EssentialLink },
   data () {
     return {
-      left: false
+      left: false,
+      sidebarLinks: [
+        {
+          title: 'List Notes',
+          caption: '',
+          icon: 'article',
+          link: 'https://quasar.dev'
+        },
+        {
+          title: 'Create Note',
+          caption: '',
+          icon: 'note_add',
+          link: 'https://quasar.dev'
+        }
+      ]
     }
   }
 }
