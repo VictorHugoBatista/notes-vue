@@ -7,12 +7,14 @@
       <q-input rounded outlined clearable
       label="Title"
       v-model="form.title"
+      :rules="[val => val && val.length || 'Title required!']"
       class="col-md-12">
       </q-input>
 
       <q-input rounded outlined autogrow clearable
       label="Body"
       v-model="form.body"
+      :rules="[val => val && val.length || 'Body required!']"
       class="col-md-12">
       </q-input>
 
