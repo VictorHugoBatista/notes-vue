@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import NoteService from '../services/Note'
-import NoteForm from '../components/forms/Note'
+import NoteService from '../../services/Note'
+import NoteForm from '../../components/forms/Note'
 
 export default {
   components: {
