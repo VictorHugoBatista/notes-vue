@@ -16,7 +16,7 @@
 
     <div class="q-mt-lg">
       <q-btn label="Submit" type="submit" color="primary" />
-      <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-md" />
+      <q-btn v-if="canReset" label="Reset" type="reset" color="primary" flat class="q-ml-md" />
     </div>
   </q-form>
 </template>
@@ -35,7 +35,11 @@ export default {
     },
     messageSuccess: String,
     messageError: String,
-    submitAction: Function
+    submitAction: Function,
+    canReset: {
+      type: Boolean,
+      default: true
+    }
   },
   methods: {
     async onSubmit () {
@@ -58,6 +62,9 @@ export default {
       }
     },
     async onReset () {
+      if (!this.canReset) {
+        return
+      }
       await this.resetForm()
       this.$refs.noteForm.resetValidation()
     },
