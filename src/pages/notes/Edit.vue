@@ -5,8 +5,8 @@
     </h2>
     <note-form
     :form="note"
-    :messageSuccess="'Note created!'"
-    :messageError="'Error on note creation'"
+    :messageSuccess="'Note updated!'"
+    :messageError="'Error on note update'"
     :submitAction="this.onFormSubmit"
     ></note-form>
   </q-page>
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     async onFormSubmit (formData) {
-      return await NoteService.create(formData)
+      return await NoteService.update(this.$route.params.noteId, formData)
     }
   }
 }

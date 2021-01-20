@@ -14,5 +14,9 @@ export default {
   async create (note) {
     const result = await axios.post(endpointUrl, note)
     return result.status === 200
+  },
+  async update (noteId, note) {
+    const result = await axios.patch(`${endpointUrl}/${noteId}`, note)
+    return result.status === 200
   }
 }
