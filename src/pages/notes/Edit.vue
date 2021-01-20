@@ -8,6 +8,7 @@
     :messageSuccess="'Note updated!'"
     :messageError="'Error on note update'"
     :submitAction="this.onFormSubmit"
+    :canReset="false"
     ></note-form>
   </q-page>
 </template>
