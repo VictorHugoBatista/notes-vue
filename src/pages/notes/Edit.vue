@@ -4,6 +4,7 @@
       Edit Note
     </h2>
     <note-form
+    :form="note"
     :messageSuccess="'Note created!'"
     :messageError="'Error on note creation'"
     :submitAction="this.onFormSubmit"
@@ -19,9 +20,20 @@ export default {
   components: {
     'note-form': NoteForm
   },
-  async beforeMount () {
+  data () {
+    return {
+      note: {
+        title: '',
+        body: ''
+      }
+    }
+  },
+  async created () {
     const note = await NoteService.get(this.$route.params.noteId)
-    console.log('test', this.$route.params.noteId, note)
+    if (typeof note.status !== 'undefined' && note.status !== 200) {
+      this.$router.push({ name: '404' })
+    }
+    this.note = note
   },
   methods: {
     async onFormSubmit (formData) {
