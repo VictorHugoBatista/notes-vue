@@ -14,7 +14,7 @@ const routes = [
     children: [
       { path: '', name: 'notes-list', component: () => import('pages/notes/List') },
       { path: 'create', name: 'notes-create', component: () => import('pages/notes/Create') },
-      { path: 'edit/:noteId', name: 'notes-edit', component: () => import('pages/notes/Create') }
+      { path: 'edit/:noteId', name: 'notes-edit', component: () => import('pages/notes/Edit') }
     ]
   },
 
