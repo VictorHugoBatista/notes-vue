@@ -19,6 +19,10 @@ export default {
   components: {
     'note-form': NoteForm
   },
+  async beforeMount () {
+    const note = await NoteService.get(this.$route.params.noteId)
+    console.log('test', this.$route.params.noteId, note)
+  },
   methods: {
     async onFormSubmit (formData) {
       return await NoteService.create(formData)
